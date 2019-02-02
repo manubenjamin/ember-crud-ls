@@ -2,20 +2,37 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
 	model() {
-		return this.store.findAll('book')
+		return {
+			books: this.store.findAll('book'),
+			selectedBook: undefined
+		}
 	},
 
 	actions: {
-		createNewBook(bookName) {
+		createNewBook(bookDTO) {
+			console.log(bookDTO)
 			let book = this.store.createRecord('book', {
-				name: bookName,
-				author: 'Chetan Bhagat',
-				coverImage: 'imageurl',
-				price: 400,
-				ratings: 4.8
+				name: bookDTO.bookName,
+				author: bookDTO.authorName
 			});
 
 			book.save();
+		},
+
+		removeBookItem(id) {
+			let book = this.store.findRecord('book', id).then(function(book) {
+			  book.deleteRecord();
+			  book.get('isDeleted'); // => true
+			  book.save(); // => DELETE to /posts/1
+			});
+		},
+
+		updateBook(bookDTO) {
+			let book = this.store.findRecord('book', bookDTO.id).then(function(book) {
+			  book.set('name',bookDTO.bookName);
+			  book.set('author',bookDTO.authorName);
+			  book.save();
+			});
 		}
 	}
 });

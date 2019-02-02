@@ -1,2 +1,8 @@
-{{book-list title="Books" books=this.model}}
-{{input value=this.name enter=(route-action 'createNewBook' value='target.value')}}
+<article>
+{{book-list 
+	title="Books" 
+	books=this.model.books
+	handleCreateRecord=(route-action "createNewBook")
+	handleUpdateRecord=(route-action "updateBook")
+	selectedBook=this.model.selectedBook}}
+</article>

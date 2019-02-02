@@ -1,0 +1,10 @@
+.book-item .remove-link {
+	color:#007bff !important;
+	text-decoration: underline!important;
+	cursor: pointer;
+}
+
+.book-button {
+	position: relative;
+	top: -45px;
+}
