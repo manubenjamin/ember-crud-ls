@@ -10,7 +10,6 @@ export default Route.extend({
 
 	actions: {
 		createNewBook(bookDTO) {
-			console.log(bookDTO)
 			let book = this.store.createRecord('book', {
 				name: bookDTO.bookName,
 				author: bookDTO.authorName
@@ -20,18 +19,18 @@ export default Route.extend({
 		},
 
 		removeBookItem(id) {
-			let book = this.store.findRecord('book', id).then(function(book) {
-			  book.deleteRecord();
-			  book.get('isDeleted'); // => true
-			  book.save(); // => DELETE to /posts/1
+			this.store.findRecord('book', id).then(function(book) {
+				book.deleteRecord();
+				book.get('isDeleted');
+				book.save();
 			});
 		},
 
 		updateBook(bookDTO) {
-			let book = this.store.findRecord('book', bookDTO.id).then(function(book) {
-			  book.set('name',bookDTO.bookName);
-			  book.set('author',bookDTO.authorName);
-			  book.save();
+			this.store.findRecord('book', bookDTO.id).then(function(book) {
+				book.set('name',bookDTO.bookName);
+				book.set('author',bookDTO.authorName);
+				book.save();
 			});
 		}
 	}

@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { inject } from '@ember/service';
 
 export default Component.extend({
 	bookName: '',
@@ -6,7 +7,7 @@ export default Component.extend({
 	showAddWindow: false,
 	showEditWindow: false,
 	selectedId: undefined,
-	store: Ember.inject.service(),
+	store: inject.service(),
 
 	actions: {
 		addDialogBtnClick() {
@@ -24,14 +25,13 @@ export default Component.extend({
 		},
 
 		editBookItem(id) {
-			var store = this.get('store');
 			var self = this;
 			
-			let book = this.store.findRecord('book', id).then(function(book) {
-			  self.set('selectedId', book.id);
-			  self.set('showEditWindow', true);
-			  self.set('bookName', book.name);
-			  self.set('authorName', book.author);
+			this.store.findRecord('book', id).then(function(book) {
+				self.set('selectedId', book.id);
+				self.set('showEditWindow', true);
+				self.set('bookName', book.name);
+				self.set('authorName', book.author);
 			});
 		},
 

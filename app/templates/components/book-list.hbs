@@ -1,77 +1,76 @@
 <h2 class="f3 fw4 pa3 mv0">{{this.title}}</h2>
 <div class="fr mr4 book-button">
-{{#bs-button type="primary" icon="glyphicon glyphicon-download" onClick=(action "addDialogBtnClick")}}
-Add Book
-{{/bs-button}}
+	{{#bs-button type="primary" icon="glyphicon glyphicon-download" onClick=(action "addDialogBtnClick")}}
+	Add Book
+	{{/bs-button}}
 </div>
 <div class="cf pa2">
-{{#each this.books as |book|}}
-<div class="fl w-50-s w-25-m w-20-l pa3 tc book-item shadow-5">
-<img src="http://pcauthorities.com/content/images/reviews/amb_logo.png" alt="Young Thug - Jeffery Album Cover" class="w-100 db outline black-10"/>
-<dl class="mt2 f6 lh-copy">
-<dt class="clip">Title</dt>
-<dd class="ml0 black truncate w-100">{{book.name}}</dd>
-<dt class="clip">Artist</dt>
-<dd class="ml0 gray truncate w-100">{{book.author}}</dd>
-</dl>
-<div>
-<a class="remove-link fl" onClick={{route-action 'removeBookItem' book.id}}>Remove</a>
-<a class="remove-link fr" onClick={{action 'editBookItem' book.id}}>Edit</a>
-</div>
-</div>
-{{/each}}
+	{{#each this.books as |book|}}
+	<div class="fl w-50-s w-25-m w-20-l pa3 tc book-item shadow-5">
+		<img src="http://pcauthorities.com/content/images/reviews/amb_logo.png" alt="Young Thug - Jeffery Album Cover" class="w-100 db outline black-10"/>
+		<dl class="mt2 f6 lh-copy">
+			<dt class="clip">Title</dt>
+			<dd class="ml0 black truncate w-100">{{book.name}}</dd>
+			<dt class="clip">Artist</dt>
+			<dd class="ml0 gray truncate w-100">{{book.author}}</dd>
+		</dl>
+		<div>
+			<a class="remove-link fl" onClick={{route-action 'removeBookItem' book.id}}>Remove</a>
+			<a class="remove-link fr" onClick={{action 'editBookItem' book.id}}>Edit</a>
+		</div>
+	</div>
+	{{/each}}
 {{#if this.books}}
-	
 {{else}}
-<div class="ml2">Book list is empty!!!</div>
+	<div class="ml2">Book list is empty!!!</div>
 {{/if}}
 </div>
 
 {{#if showAddWindow}}
 {{#bs-modal onHide=(action 'cancel') onSubmit=(action "submit") as |modal|}}
-{{#modal.header}}
-<h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Add Book</h4>
-{{/modal.header}}
-{{#modal.body}}
-<div>
-	<div class="flex">
+	{{#modal.header}}
+		<h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Add Book</h4>
+	{{/modal.header}}
+	{{#modal.body}}
+		<div>
+		<div class="flex">
 		<div class="w-30">Book Name:</div>
 		<div>{{input value=bookName}}</div>
-	</div>
-	<div class="flex mt2">
+		</div>
+		<div class="flex mt2">
 		<div class="w-30">Author Name:</div>
 		<div>{{input value=authorName}}</div>
-	</div>
-</div>
-{{/modal.body}}
-{{#modal.footer as |footer|}}
-{{#bs-button onClick=(action 'cancel') type="danger"}}Cancel{{/bs-button}}
-{{#bs-button onClick=(action 'submit') type="success"}}Submit{{/bs-button}}
-{{/modal.footer}}
+		</div>
+		</div>
+	{{/modal.body}}
+	{{#modal.footer as |footer|}}
+		{{#bs-button onClick=(action 'cancel') type="danger"}}Cancel{{/bs-button}}
+		{{#bs-button onClick=(action 'submit') type="success"}}Submit{{/bs-button}}
+	{{/modal.footer}}
 {{/bs-modal}}
 {{/if}}
 
 {{#if showEditWindow}}
 {{#bs-modal onHide=(action 'cancelUpdate') onSubmit=(action "update") as |modal|}}
-{{#modal.header}}
-<h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Update Book</h4>
-{{/modal.header}}
-{{#modal.body}}
-<div>
-	<div class="flex">
-		<div class="w-30">Book Name:</div>
-		<div>{{input value=bookName}}</div>
-	</div>
-	<div class="flex mt2">
-		<div class="w-30">Author Name:</div>
-		<div>{{input value=authorName}}</div>
-	</div>
-</div>
-{{/modal.body}}
-{{#modal.footer as |footer|}}
-{{#bs-button onClick=(action 'cancelUpdate') type="danger"}}Cancel{{/bs-button}}
-{{#bs-button onClick=(action 'update') type="success"}}Update{{/bs-button}}
-{{/modal.footer}}
+	{{#modal.header}}
+		<h4 class="modal-title"><i class="glyphicon glyphicon-alert"></i> Update Book</h4>
+	{{/modal.header}}
+	{{#modal.body}}
+		<div>
+			<div class="flex">
+				<div class="w-30">Book Name:</div>
+				<div>{{input value=bookName}}</div>
+			</div>
+			<div class="flex mt2">
+				<div class="w-30">Author Name:</div>
+				<div>{{input value=authorName}}</div>
+			</div>
+		</div>
+	{{/modal.body}}
+	{{#modal.footer as |footer|}}
+		{{#bs-button onClick=(action 'cancelUpdate') type="danger"}}Cancel{{/bs-button}}
+		{{#bs-button onClick=(action 'update') type="success"}}Update{{/bs-button}}
+	{{/modal.footer}}
 {{/bs-modal}}
 {{/if}}
 
