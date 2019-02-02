@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
 	bookName: '',
@@ -7,7 +7,7 @@ export default Component.extend({
 	showAddWindow: false,
 	showEditWindow: false,
 	selectedId: undefined,
-	store: inject.service(),
+	store: service(),
 
 	actions: {
 		addDialogBtnClick() {
