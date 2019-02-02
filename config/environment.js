@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/';
+    ENV.baseURL = '/ember-crud-ls';
     ENV.locationType = 'hash';
   }
 
