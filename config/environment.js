@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/crudls';
+    ENV.baseURL = '/';
     ENV.locationType = 'hash';
   }
 
