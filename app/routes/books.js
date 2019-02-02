@@ -2,6 +2,18 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
 	model() {
-		return ['The god of small things', 'Book of Ram', 'History of the world'];
+		return this.store.peekAll('book')
+	},
+
+	actions: {
+		createNewBook(bookName) {
+			this.store.createRecord('book', {
+				name: bookName,
+				author: 'Chetan Bhagat',
+				coverImage: 'imageurl',
+				price: 400,
+				ratings: 4.8
+			});
+		}
 	}
 });
