@@ -3,6 +3,7 @@
 Persistent storage in Ember application using localStorage adapter and serializer
 
 For more details, read the following article,
+
 https://medium.com/@manu.benjamin/persistent-data-storage-in-ember-with-localstorage-946a152a159e
 
 ## Prerequisites
