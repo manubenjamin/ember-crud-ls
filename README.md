@@ -1,7 +1,9 @@
 # ember-crud-ls
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Persistent storage in Ember application using localStorage adapter and serializer
+
+For more details, read the following article,
+https://medium.com/@manu.benjamin/persistent-data-storage-in-ember-with-localstorage-946a152a159e
 
 ## Prerequisites
 
@@ -23,9 +25,6 @@ You will need the following things properly installed on your computer.
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Documentation
-https://medium.com/@manu.benjamin/persistent-data-storage-in-ember-with-localstorage-946a152a159e
 
 ### Online Demo
 https://manubenjamin.github.io/ember-crud-ls/#/books
