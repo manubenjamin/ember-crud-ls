@@ -24,6 +24,12 @@ You will need the following things properly installed on your computer.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
+### Documentation
+https://medium.com/@manu.benjamin/persistent-data-storage-in-ember-with-localstorage-946a152a159e
+
+### Online Demo
+https://manubenjamin.github.io/ember-crud-ls/#/books
+
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details
